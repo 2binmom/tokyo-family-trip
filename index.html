@@ -92,6 +92,31 @@
   }
   .map-btn:hover{background:#FFD9E4;}
 
+  .tab-bar{
+    display:flex; gap:8px; flex-wrap:wrap; margin:20px 0 0; padding:10px 0;
+    position:sticky; top:0; background:var(--bg); z-index:5; border-bottom:1px solid var(--line);
+  }
+  .tab-btn{
+    border:1.5px solid var(--line); background:#fff; color:var(--ink);
+    border-radius:999px; padding:9px 15px; font-size:13.5px; font-weight:700;
+    cursor:pointer; white-space:nowrap;
+  }
+  .tab-btn.active{background:var(--pink-deep); border-color:var(--pink-deep); color:#fff;}
+
+  .print-btn{
+    display:inline-flex; align-items:center; gap:6px; margin-top:10px;
+    background:var(--pink-deep); color:#fff; border:none; border-radius:999px;
+    padding:10px 16px; font-size:13.5px; font-weight:700; cursor:pointer;
+  }
+  .print-btn:hover{background:var(--pink-main);}
+
+  @media print{
+    header.hero, .tab-bar, .top-intro, .print-btn, footer{display:none !important;}
+    .acc-panel{grid-template-rows:1fr !important;}
+    body{background:#fff;}
+    section.block{padding-top:0;}
+  }
+
   section.block{padding:26px 0 0;}
   .sec-title{
     font-family:'Jalnan',-apple-system,sans-serif; font-weight:normal;
@@ -214,7 +239,15 @@
     </div>
   </div>
 
-  <section class="block">
+  <div class="tab-bar">
+    <button type="button" class="tab-btn" data-sec="sec1">📊 한눈에</button>
+    <button type="button" class="tab-btn" data-sec="sec2">🗓️ 일정</button>
+    <button type="button" class="tab-btn" data-sec="sec3">💰 경비</button>
+    <button type="button" class="tab-btn" data-sec="sec4">🎒 짐싸기</button>
+    <button type="button" class="tab-btn" data-sec="sec5">🚗 꿀팁</button>
+  </div>
+
+  <section class="block" data-sec="sec1">
     <p class="sec-title">1️⃣ 여행 한눈에</p>
     <div class="stat-row">
       <div class="stat-card"><div class="label">기간</div><div class="value">7박 8일</div></div>
@@ -224,13 +257,13 @@
     <p class="heads-up">💴 이번에 엔저라 쇼핑을 좀 많이 했어요....! 그래서 금액이 생각보다 높아요 ㅋㅋ 참고해 주세요 💦</p>
   </section>
 
-  <section class="block">
+  <section class="block" data-sec="sec2">
     <p class="sec-title">2️⃣ 일자별 일정 + 그날 쓴 돈</p>
     <p class="sec-hint">👆 날짜 누르면 일정이랑 경비가 펼쳐져요</p>
     <div class="acc-list" id="dayList"></div>
   </section>
 
-  <section class="block">
+  <section class="block" data-sec="sec3">
     <p class="sec-title">3️⃣ 경비 총정리</p>
     <table class="fixed-table">
       <thead><tr><th>고정 경비</th><th class="amt-head">금액</th></tr></thead>
@@ -265,13 +298,14 @@
     <p class="foot-note">※ 엔화는 100엔당 대략 850원으로 환산했어요. 일부 현금 결제분은 추정치가 섞여 있을 수 있어요.</p>
   </section>
 
-  <section class="block">
+  <section class="block" data-sec="sec4">
     <p class="sec-title">4️⃣ 짐싸기 체크리스트</p>
     <p class="sec-hint">👆 카테고리 누르면 체크리스트가 펼쳐져요</p>
     <div class="acc-list" id="packList"></div>
+    <button type="button" class="print-btn" onclick="printPacking()">🖨 인쇄하기 / 폰에 PDF로 저장</button>
   </section>
 
-  <section class="block">
+  <section class="block" data-sec="sec5">
     <p class="sec-title">5️⃣ 인천공항 이동, 이렇게 골랐어요</p>
     <div class="tip-card">
       <h3>🚗 공항버스 대신 자차를 선택한 이유</h3>
@@ -383,6 +417,24 @@ function toggleAcc(id, group){
   if (!item) return;
   item.classList.add('open');
   openAccByGroup[group] = id;
+}
+
+function showSection(id){
+  document.querySelectorAll('section.block[data-sec]').forEach((s) => {
+    s.style.display = s.dataset.sec === id ? '' : 'none';
+  });
+  document.querySelectorAll('.tab-btn').forEach((b) => {
+    b.classList.toggle('active', b.dataset.sec === id);
+  });
+}
+document.querySelectorAll('.tab-btn').forEach((b) => {
+  b.addEventListener('click', () => showSection(b.dataset.sec));
+});
+showSection('sec1');
+
+function printPacking(){
+  document.querySelectorAll('#packList .acc-item').forEach((el) => el.classList.add('open'));
+  window.print();
 }
 
 function shareKakao(btn){
