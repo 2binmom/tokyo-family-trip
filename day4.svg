@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="780" viewBox="0 0 1600 780">
+  <rect width="1600" height="780" fill="#f8fbff"/>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" fill="#17324d">
+    <text x="70" y="72" font-size="42" font-weight="700">🏰 이케부쿠로 → 디즈니씨</text>
+    <text x="70" y="115" font-size="23" fill="#536b81">신키바에서 JR로 환승 · 마이하마에서 디즈니 모노레일로 환승</text>
+  </g>
+  <rect x="70" y="142" width="1460" height="225" rx="24" fill="#fff8e5"/>
+  <text x="95" y="184" font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="25" font-weight="700" fill="#775600">① 도쿄메트로 유라쿠초선 · 신키바행 · 약 32분 / 총 15정거장</text>
+  <line x1="125" y1="267" x2="1460" y2="267" stroke="#c59a23" stroke-width="12" stroke-linecap="round"/>
+  <g fill="#fff" stroke="#c59a23" stroke-width="6"><circle cx="125" cy="267" r="17"/><circle cx="340" cy="267" r="13"/><circle cx="555" cy="267" r="13"/><circle cx="770" cy="267" r="13"/><circle cx="985" cy="267" r="13"/><circle cx="1200" cy="267" r="13"/><circle cx="1460" cy="267" r="18"/></g>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="21" text-anchor="middle" fill="#17324d"><text x="125" y="237" font-weight="700">이케부쿠로</text><text x="340" y="307">히가시이케부쿠로</text><text x="555" y="237">이다바시</text><text x="770" y="307">유라쿠초</text><text x="985" y="237">도요스</text><text x="1200" y="307">다쓰미</text><text x="1460" y="237" font-weight="700">신키바</text></g>
+  <text x="100" y="347" font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="18" fill="#806c34">※ 확인하기 좋은 대표 역 5개만 표시했어요. 중간의 다른 역은 그림에서 생략했어요.</text>
+  <rect x="70" y="390" width="1460" height="155" rx="24" fill="#fff0f2"/>
+  <text x="95" y="430" font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="25" font-weight="700" fill="#a22c41">② 신키바에서 JR 게이요선으로 갈아타기 · 마이하마까지 2정거장</text>
+  <line x1="210" y1="485" x2="1370" y2="485" stroke="#d44a5d" stroke-width="11" stroke-linecap="round"/>
+  <g fill="#fff" stroke="#d44a5d" stroke-width="6"><circle cx="210" cy="485" r="16"/><circle cx="790" cy="485" r="13"/><circle cx="1370" cy="485" r="17"/></g>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="22" text-anchor="middle" fill="#17324d"><text x="210" y="526" font-weight="700">신키바</text><text x="790" y="526">가사이린카이코엔</text><text x="1370" y="526" font-weight="700">마이하마</text></g>
+  <rect x="70" y="565" width="1460" height="175" rx="24" fill="#edf2ff"/>
+  <text x="95" y="606" font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="25" font-weight="700" fill="#3f5f9d">③ 마이하마역에서 도보 약 2분 → 디즈니 모노레일 · 3정거장</text>
+  <line x1="180" y1="667" x2="1390" y2="667" stroke="#6185cf" stroke-width="11" stroke-linecap="round"/>
+  <g fill="#fff" stroke="#6185cf" stroke-width="6"><circle cx="180" cy="667" r="16"/><circle cx="570" cy="667" r="13"/><circle cx="960" cy="667" r="13"/><circle cx="1390" cy="667" r="18"/></g>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="21" text-anchor="middle" fill="#17324d"><text x="180" y="713">리조트 게이트웨이</text><text x="570" y="713">디즈니랜드</text><text x="960" y="713">베이사이드</text><text x="1390" y="713" font-weight="700">디즈니씨</text></g>
+</svg>

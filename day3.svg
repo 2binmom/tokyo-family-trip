@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="500" viewBox="0 0 1400 500">
+  <rect width="1400" height="500" fill="#f8fbff"/>
+  <text x="70" y="75" font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="40" font-weight="700" fill="#172b4d">🪄 이케부쿠로 → 해리포터 스튜디오</text>
+  <text x="70" y="122" font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="25" fill="#46617f">세이부선 ‘도시마엔행’ 직행 열차 · 6정거장 · 약 17분</text>
+  <line x1="100" y1="270" x2="1300" y2="270" stroke="#2b68c9" stroke-width="15" stroke-linecap="round"/>
+  <g fill="#fff" stroke="#2b68c9" stroke-width="8">
+    <circle cx="100" cy="270" r="22"/><circle cx="300" cy="270" r="17"/><circle cx="500" cy="270" r="17"/><circle cx="700" cy="270" r="17"/><circle cx="900" cy="270" r="17"/><circle cx="1100" cy="270" r="20"/><circle cx="1300" cy="270" r="24"/>
+  </g>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="23" text-anchor="middle" fill="#172b4d">
+    <text x="100" y="218" font-weight="700">이케부쿠로</text>
+    <text x="300" y="340">시이나마치</text>
+    <text x="500" y="218">히가시나가사키</text>
+    <text x="700" y="340">에코다</text>
+    <text x="900" y="218">사쿠라다이</text>
+    <text x="1100" y="340" font-weight="700">네리마</text>
+    <text x="1300" y="218" font-weight="700">도시마엔</text>
+  </g>
+  <text x="1100" y="380" font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="19" text-anchor="middle" fill="#46617f">다른 행선지를 타면 여기서 환승</text>
+  <rect x="1060" y="414" width="270" height="56" rx="18" fill="#f5d87b"/>
+  <text x="1195" y="450" font-family="Arial, Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#172b4d">도시마엔역 → 도보 2분</text>
+</svg>
