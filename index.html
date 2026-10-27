@@ -111,7 +111,10 @@
   .print-btn:hover{background:var(--pink-main);}
 
   @media print{
-    header.hero, .tab-bar, .top-intro, .print-btn, footer{display:none !important;}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    header.hero, .tab-bar, .top-intro, .print-btn, footer{
+      display:none !important; visibility:hidden !important; height:0 !important; overflow:hidden !important;
+    }
     .acc-panel{grid-template-rows:1fr !important;}
     body{background:#fff;}
     section.block{padding-top:0;}
