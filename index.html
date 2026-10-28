@@ -411,22 +411,22 @@
   <section class="block" data-sec="sec6">
     <p class="sec-title">7️⃣ 여행 영상 모아보기</p>
     <p class="sec-hint">👆 눌러보시면 바로 재생돼요</p>
-    <a class="video-card" href="https://youtube.com/playlist?list=PLyXZ4eoGlbNs6kLomDonpVILAL4XCLaT7" onclick="return openPreview(event)">
+    <a class="video-card" href="https://youtube.com/playlist?list=PLI92S8VbhzE8" onclick="return openPreview(event)">
       <div class="video-thumb-wrap video-thumb-placeholder">
         <span class="video-play">▶</span>
       </div>
-      <div class="video-card-title">투빈네 싱가포르 여행 영상 재생목록</div>
+      <div class="video-card-title">투빈네 도쿄 여행 영상 재생목록</div>
     </a>
-    <p class="sec-hint">※ 도쿄 영상도 완성되면 여기에 같이 올려드릴게요</p>
+    <p class="sec-hint">※ 재생목록이라 새 영상이 올라올 때마다 여기서 이어서 보실 수 있어요</p>
   </section>
 </div>
 
 <div class="video-modal" id="videoModal" onclick="if(event.target===this) closePreview()">
   <div class="video-modal-box">
     <div class="video-modal-head">
-      <div class="video-modal-title">투빈네 싱가포르 여행 영상 재생목록</div>
+      <div class="video-modal-title">투빈네 도쿄 여행 영상 재생목록</div>
       <div class="video-modal-actions">
-        <a class="vm-btn" href="https://youtube.com/playlist?list=PLyXZ4eoGlbNs6kLomDonpVILAL4XCLaT7" target="_blank" rel="noopener">▶ 유튜브에서 열기</a>
+        <a class="vm-btn" href="https://youtube.com/playlist?list=PLI92S8VbhzE8" target="_blank" rel="noopener">▶ 유튜브에서 열기</a>
         <button type="button" class="vm-btn" onclick="closePreview()">닫기 ✕</button>
       </div>
     </div>
@@ -767,7 +767,7 @@ function printPacking(){
 
 function openPreview(evt){
   if (evt) evt.preventDefault();
-  document.getElementById('vmIframe').src = 'https://www.youtube.com/embed/videoseries?list=PLyXZ4eoGlbNs6kLomDonpVILAL4XCLaT7&autoplay=1';
+  document.getElementById('vmIframe').src = 'https://www.youtube.com/embed/videoseries?list=PLI92S8VbhzE8&autoplay=1';
   document.getElementById('videoModal').classList.add('open');
   document.body.style.overflow = 'hidden';
   return false;
