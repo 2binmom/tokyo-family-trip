@@ -218,6 +218,8 @@
   .detail-table{width:100%; min-width:420px; border-collapse:collapse; background:#fff; font-size:12px;}
   .detail-table th, .detail-table td{border:1px solid var(--line); padding:7px 8px; text-align:left; vertical-align:top;}
   .detail-table th{background:#FFF3D6; font-weight:800; white-space:nowrap;}
+  .detail-table td.amt{text-align:right; white-space:nowrap;}
+  .detail-table tr.sum td{background:#FFF3D6; font-weight:800;}
 
   .tip-card{
     background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
@@ -273,6 +275,7 @@
     <button type="button" class="tab-btn" data-sec="sec2">🗓️ 일정</button>
     <button type="button" class="tab-btn" data-sec="sec7">📝 상세 일정</button>
     <button type="button" class="tab-btn" data-sec="sec3">💰 경비</button>
+    <button type="button" class="tab-btn" data-sec="sec8">📋 상세 경비</button>
     <button type="button" class="tab-btn" data-sec="sec4">🎒 짐싸기</button>
     <button type="button" class="tab-btn" data-sec="sec5">🚗 꿀팁</button>
     <button type="button" class="tab-btn" data-sec="sec6">🎬 영상</button>
@@ -365,15 +368,22 @@
     <p class="foot-note">※ 엔화는 100엔당 대략 850원으로 환산했어요. 일부 현금 결제분은 추정치가 섞여 있을 수 있어요.</p>
   </section>
 
+  <section class="block" data-sec="sec8">
+    <p class="sec-title">5️⃣ 상세 경비 내역</p>
+    <p class="heads-up">💳 뭘 사느라 썼는지 품목 그대로 다 공개해요! 날짜 누르면 펼쳐져요</p>
+    <div class="acc-list" id="expenseList"></div>
+    <p class="foot-note">※ 엔화는 100엔당 대략 850원으로 환산했어요. "현금"으로 쓴 항목은 환산 금액을 따로 집계하지 않았어요.</p>
+  </section>
+
   <section class="block" data-sec="sec4">
-    <p class="sec-title">5️⃣ 짐싸기 체크리스트</p>
+    <p class="sec-title">6️⃣ 짐싸기 체크리스트</p>
     <p class="sec-hint">👆 카테고리 누르면 체크리스트가 펼쳐져요</p>
     <div class="acc-list" id="packList"></div>
     <button type="button" class="print-btn" onclick="printPacking()">🖨 인쇄하기 / 폰에 PDF로 저장</button>
   </section>
 
   <section class="block" data-sec="sec5">
-    <p class="sec-title">6️⃣ 인천공항 이동, 이렇게 골랐어요</p>
+    <p class="sec-title">7️⃣ 인천공항 이동, 이렇게 골랐어요</p>
     <div class="tip-card">
       <h3>🚗 공항버스 대신 자차를 선택한 이유</h3>
       <p>지하철로 갈까, 공항버스를 탈까, 자차로 갈까 진짜 고민을 많이 했어요. 근데 공항버스가 <strong>1인 16,000원 정도</strong>라 왕복이면 거의 6만원 가까이 들더라고요(아이 둘이면 금액이 꽤 커져요). 캐리어 2개 + 백팩 2개 + 아이들 짐까지 있으니 지하철은 현실적으로 어려웠고요, 그래서 이번에도 <strong>자차</strong>를 선택했어요.</p>
@@ -387,7 +397,7 @@
   </section>
 
   <section class="block" data-sec="sec6">
-    <p class="sec-title">7️⃣ 여행 영상 모아보기</p>
+    <p class="sec-title">8️⃣ 여행 영상 모아보기</p>
     <a class="video-card" href="https://youtube.com/playlist?list=PLI92S8VbhzE8" target="_blank" rel="noopener">
       <div class="video-thumb-wrap">
         <img class="video-thumb" src="video-thumb-tokyo.jpg?v=2" alt="투빈네 도쿄 여행 영상 재생목록">
@@ -694,6 +704,129 @@ renderAccordion('detailList', DETAIL_DAYS.map(d => ({
   ...d,
   labelHtml: `<span class="day-label"><span class="num">${d.num}</span><span class="date">${d.date}</span><span class="title">${d.title}</span></span>`,
 })), (d) => `<div class="detail-card">${d.content}</div>`, 'detailList');
+
+const EXPENSE_DAYS = [
+  { num: 'Day 1', date: '10/17(토)', title: '도쿄 도착, 이케부쿠로', totalJpy: '35,463엔', totalKrw: '242,255원', items: [
+    ['음료수 2개', '460엔', '3,901원'],
+    ['공항버스 4인', '6,900엔', '현금'],
+    ['저녁(장어)', '9,730엔', '82,524원'],
+    ['돈키호테', '15,768엔', '133,736원'],
+    ['돈키호테 마실거', '553엔', '4,690원'],
+    ['편의점', '2,052엔', '17,404원'],
+  ]},
+  { num: 'Day 2', date: '10/18(일)', title: '신주쿠·시부야 관광과 쇼핑', totalJpy: '164,224엔', totalKrw: '1,393,195원', items: [
+    ['커피', '453엔', '3,842원'],
+    ['교통카드', '10,000엔', '84,814원'],
+    ['하코네 프리패스', '17,400엔', '147,578원'],
+    ['스시', '12,636엔', '107,172원'],
+    ['바오바오백', '48,236엔', '약 41만원'],
+    ['포켓몬센터', '5,890엔', '49,956원'],
+    ['스타벅스', '1,321엔', '11,204원'],
+    ['몽벨', '18,140엔', '153,300원'],
+    ['라멘', '5,350엔', '45,376원'],
+    ['바오바오백', '39,000엔', '330,778원'],
+    ['닭날개 15개', '1,511엔', '12,815원'],
+    ['편의점', '4,287엔', '36,360원'],
+  ]},
+  { num: 'Day 3', date: '10/19(월)', title: '해리포터 스튜디오·이케부쿠로 쇼핑', totalJpy: '124,387엔', totalKrw: '1,050,804원', items: [
+    ['버터맥주', '3,160엔', '26,760원'],
+    ['점심', '6,480엔', '54,744원'],
+    ['해리포터 기념품', '6,240엔', '52,652원'],
+    ['포켓몬센터', '15,784엔', '133,120원'],
+    ['가오레 총 4판', '1,800엔', '현금'],
+    ['스타벅스', '1,320엔', '11,112원'],
+    ['타코야끼', '1,960엔', '16,518원'],
+    ['오락실', '2,500엔', '현금'],
+    ['칼디', '7,513엔', '63,364원'],
+    ['꼼데(윤기)', '12,800엔', '107,934원'],
+    ['꼼데(형부)', '7,600엔', '64,087원'],
+    ['몽벨 패딩', '26,341엔', '223,900원'],
+    ['스탠다드 프로덕트', '10,340엔', '87,078원'],
+    ['야키니쿠', '18,161엔', '152,884원'],
+    ['편의점', '2,388엔', '20,101원'],
+  ]},
+  { num: 'Day 4', date: '10/20(화)', title: '디즈니씨', totalJpy: '37,071엔', totalKrw: '311,494원', items: [
+    ['스타벅스', '1,956엔', '16,410원'],
+    ['맥도날드', '1,540엔', '12,933원'],
+    ['센터 오브 디 어스', '8,000엔', '67,226원'],
+    ['토이스토리', '8,000엔', '67,189원'],
+    ['팝콘', '400엔', '3,362원'],
+    ['츄러스 4개', '2,000엔', '16,808원'],
+    ['마그넷', '1,100엔', '9,241원'],
+    ['저녁', '4,020엔', '33,770원'],
+    ['칠면조', '3,200엔', '26,917원'],
+    ['물', '500엔', '4,205원'],
+    ['츄러스 2개', '1,000엔', '8,404원'],
+    ['편의점', '5,355엔', '45,029원'],
+  ]},
+  { num: 'Day 5', date: '10/21(수)', title: '하코네 이동·신사·온천', totalJpy: '17,505엔', totalKrw: '146,823원', items: [
+    ['주먹밥', '1,620엔', '13,598원'],
+    ['점심', '6,910엔', '58,002원'],
+    ['커피', '1,430엔', '11,987원'],
+    ['빵', '3,270엔', '27,406원'],
+    ['편의점', '3,675엔', '30,802원'],
+    ['호텔 세금', '600엔', '5,028원'],
+  ]},
+  { num: 'Day 6', date: '10/22(목)', title: '오와쿠다니·고라공원', totalJpy: '53,916엔', totalKrw: '403,424원', items: [
+    ['유황 계란', '1,000엔', '현금'],
+    ['커피', '880엔', '현금'],
+    ['기념품', '8,750엔', '73,455원'],
+    ['커피', '400엔', '현금'],
+    ['카드지갑 만들기', '6,270엔', '52,710원'],
+    ['오뎅', '1,000엔', '현금'],
+    ['저녁', '5,160엔', '43,369원'],
+    ['몬치치', '6,100엔', '51,443원'],
+    ['인형뽑기', '2,000엔', '현금'],
+    ['물', '162엔', '1,365원'],
+    ['오렌지쥬스', '700엔', '현금'],
+    ['위스키', '14,000엔', '117,941원'],
+    ['마트', '4,850엔', '40,885원'],
+    ['마트2', '2,644엔', '22,256원'],
+  ]},
+  { num: 'Day 7', date: '10/23(금)', title: '아자부다이 힐즈·도쿄타워·도쿄역', totalJpy: '81,015엔', totalKrw: '549,645원', items: [
+    ['몽벨 투빈가방', '21,820엔', '188,744원'],
+    ['손톱깎이', '5,148엔', '45,800원'],
+    ['스탠다드', '3,410엔', '28,768원'],
+    ['유니클로', '1,990엔', '16,787원'],
+    ['오렌지주스', '350엔', '현금'],
+    ['교통카드 충전', '1,000엔', '현금'],
+    ['34카페', '7,100엔', '59,968원'],
+    ['커피', '1,030엔', '현금'],
+    ['편의점', '1,744엔', '현금'],
+    ['물', '127엔', '현금'],
+    ['포켓몬스토어', '5,694엔', '현금'],
+    ['해리포터 카드', '440엔', '현금'],
+    ['몬치치', '5,280엔', '현금'],
+    ['도너츠', '1,090엔', '현금'],
+    ['돈키호테', '11,535엔', '97,533원'],
+    ['오코노미야끼', '8,866엔', '74,946원'],
+    ['마트', '4,391엔', '37,099원'],
+  ]},
+  { num: 'Day 8', date: '10/24(토)', title: '체크아웃·귀국', totalJpy: '51,727엔', totalKrw: '388,406원', items: [
+    ['공항버스', '6,900엔', '58,202원'],
+    ['GU', '13,219엔', '111,845원'],
+    ['스키야키 1인', '5,800엔', '현금'],
+    ['스키야키 3인', '18,400엔', '155,682원'],
+    ['돈키호테', '2,838엔', '24,012원'],
+    ['커피', '1,375엔', '11,633원'],
+    ['포켓몬 스토어', '3,195엔', '27,032원'],
+  ]},
+];
+
+renderAccordion('expenseList', EXPENSE_DAYS.map(d => ({
+  ...d,
+  labelHtml: `<span class="day-label"><span class="num">${d.num}</span><span class="date">${d.date}</span><span class="title">${d.title}</span></span>`,
+})), (d) => `
+  <div class="table-scroll">
+    <table class="detail-table">
+      <thead><tr><th>항목</th><th>엔화</th><th>원화</th></tr></thead>
+      <tbody>
+        ${d.items.map(([n, j, k]) => `<tr><td>${n}</td><td class="amt">${j}</td><td class="amt">${k}</td></tr>`).join('')}
+        <tr class="sum"><td>합계</td><td class="amt">${d.totalJpy}</td><td class="amt">${d.totalKrw}</td></tr>
+      </tbody>
+    </table>
+  </div>
+`, 'expenseList');
 
 const openAccByGroup = {};
 function toggleAcc(id, group){
